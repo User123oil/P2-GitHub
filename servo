@@ -1,0 +1,22 @@
+#include <Servo.h>
+
+Servo myservo;  // Create a servo object
+
+int tapePin1 = 2;  // Pin connected to the first piece of copper tape
+int tapePin2 = 3;  // Pin connected to the second piece of copper tape
+
+void setup() {
+  myservo.attach(9);  // Attach the servo to pin 9
+  pinMode(tapePin1, INPUT);
+  pinMode(tapePin2, INPUT);
+}
+
+void loop() {
+  if (digitalRead(tapePin1) == HIGH && digitalRead(tapePin2) == HIGH) {
+    // If both pieces of tape are touched, rotate the servo
+    myservo.write(90);  // Rotate servo to 90 degrees
+    delay(1000);        // Wait for 1 second
+    myservo.write(0);   // Rotate servo back to 0 degrees
+    delay(1000);        // Wait for 1 second
+  }
+}
