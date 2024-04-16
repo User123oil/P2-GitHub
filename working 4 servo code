@@ -1,0 +1,43 @@
+#include <Servo.h>
+
+
+Servo first;
+Servo second;
+Servo third;
+Servo fourth;
+const int flower = 2;
+const int button = 3;
+const int buttonthree = 4;
+const int buttonfour = 5;
+void setup(){
+  first.attach(8);
+  second.attach(9);
+  third.attach(10);
+  fourth.attach(11);
+pinMode(flower, INPUT);
+pinMode(button, INPUT);
+pinMode(buttonthree, INPUT);
+pinMode(buttonfour, INPUT);
+}
+void loop() {
+  if (digitalRead(flower) == HIGH){
+    first.write(180);
+  } else {
+    first.write(0);
+  }
+  if (digitalRead(button) == HIGH){
+    second.write(180);
+  } else {
+    second.write(0);
+  }
+  if (digitalRead(buttonthree) == HIGH){
+    third.write(180);
+  } else {
+    third.write(0);
+  }
+  if (digitalRead(buttonfour) == HIGH){
+    fourth.write(180);
+  } else {
+    fourth.write(0);
+  }
+}
